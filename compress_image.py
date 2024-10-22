@@ -80,9 +80,3 @@ def compress_image(image: Image, quality: float) -> Image:
     compressed_image: Image = Image.fromarray(s_new, mode="L")
 
     return compressed_image
-
-# Example usage
-image: Image = Image.open("IMG_9714.jpg")
-image.convert("L").save("grayscale_image.jpg", "JPEG")
-compressed_image: Image = compress_image(image, 0.5)
-compressed_image.save("compressed_image.jpg", "JPEG")
