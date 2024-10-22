@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Compressor</title>
+</head>
+<body>
+    <div id="container">
+        <h1>Image Compressor</h1>
+        <form action="/" method="post">
+            <label for="image">Upload an image:</label>
+            <input type="file" name="image" id="image" accept="image/*" required>
+            <label for="quality">Quality:</label>
+            <input type="number" name="quality" id="quality" min="1" max="100" value="100" required>
+            <button type="submit">Compress</button>
+        </form>
+    </div>
+</body>
+</html>
