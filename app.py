@@ -11,10 +11,17 @@ def index() -> str:
 
 @app.route("/upload", methods=["POST"])
 def upload_image() -> str:
-    PATH: str = "static/uploaded_image.jpg"
+    PATH: str = "static/compressed_image.jpg"
+
     print(request)
+
+    # Get data from the form
     file = request.files["image"]
-    file.save(PATH)
+    image: Image = Image.open(file)
+    quality: float = float(request.form["quality"]) / 100
+    
+    compressed_image: Image = compress_image(image, quality)
+    compressed_image.save(PATH)
     return PATH
 
 if __name__ == "__main__":
