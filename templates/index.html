@@ -8,13 +8,16 @@
 <body>
     <div id="container">
         <h1>Image Compressor</h1>
-        <form action="/" method="post">
+        <form action="/upload" method="post" enctype="multipart/form-data">
             <label for="image">Upload an image:</label>
             <input type="file" name="image" id="image" accept="image/*" required>
             <label for="quality">Quality:</label>
             <input type="number" name="quality" id="quality" min="1" max="100" value="100" required>
             <button type="submit">Compress</button>
         </form>
+        <div id="output">
+        </div>
     </div>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>
