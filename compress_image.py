@@ -10,9 +10,9 @@ def svd(m: np.ndarray) -> dict:
     ev: np.ndarray = np.linalg.eig(mtm)
 
     # Reorder the eigenvalues and corresponding eigenvectors in decreasing order
-    indices: List[int] = np.argsort(ev[0])[::-1]
-    ev_values: np.ndarray = ev[0][indices]
-    ev_vectors: np.ndarray = ev[1][:, indices]
+    indices: List[int] = np.argsort(ev[0].real)[::-1]
+    ev_values: np.ndarray = ev[0][indices].real
+    ev_vectors: np.ndarray = ev[1][:, indices].real
 
     # Find the index of the first close-to-zero eigenvalue (if any)
     for i in range(len(ev_values)):
@@ -32,14 +32,14 @@ def svd(m: np.ndarray) -> dict:
 
     u: np.ndarray = np.zeros((m.shape[0], m.shape[0]))
     for j in range(i):
-        u[:, j] = np.matmul(m, v[:, j]) / sv[j]
+        u[:, j] = np.matmul(m, v[:, j]).real / sv[j]
 
     # Ensure U has no missing columns
     if i < m.shape[0]:
         mmt: np.ndarray = np.matmul(m, m.T)
         ev2: np.ndarray = np.linalg.eig(mmt)
         indices2: List[int] = np.argsort(ev2[0])[::-1]
-        ev2_vectors: np.ndarray = ev2[1][:, indices2]
+        ev2_vectors: np.ndarray = ev2[1][:, indices2].real
 
         for j in range(i, m.shape[0]):
             u[:, j] = ev2_vectors[:, j]
