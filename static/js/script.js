@@ -1,5 +1,5 @@
 const form = document.querySelector('form');
-const output = document.querySelector('#output');
+const output = document.querySelector('#comparison');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();

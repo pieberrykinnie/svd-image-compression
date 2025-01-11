@@ -4,18 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Compressor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <div id="container">
         <h1>Image Compressor</h1>
         <form action="/upload" method="post" enctype="multipart/form-data">
-            <label for="image">Upload an image:</label>
-            <input type="file" name="image" id="image" accept="image/*" required>
-            <label for="quality">Quality:</label>
-            <input type="number" name="quality" id="quality" min="1" max="100" value="100" required>
-            <button type="submit">Compress</button>
+            <div class="upload-container">
+                <label for="image" class="upload-label">
+                    <span>Drop image here or click to upload</span>
+                    <input type="file" name="image" id="image" accept="image/*" required>
+                </label>
+            </div>
+            <div class="quality-container">
+                <label for="quality">Compression Quality: <span id="quality-value">100</span>%</label>
+                <input type="range" name="quality" id="quality" min="1" max="100" value="100" required>
+            </div>
+            <button type="submit" id="compress-btn">Compress Image</button>
         </form>
-        <div id="output">
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Compressing image...</p>
+        </div>
+        <div id="comparison" class="hidden">
+            <div class="image-container">
+                <h3>Original Image</h3>
+                <img id="original-image">
+                <p>Size: <span id="original-size"></span></p>
+            </div>
+            <div class="image-container">
+                <h3>Compressed Image</h3>
+                <img id="compressed-image">
+                <p>Size: <span id="compressed-size"></span></p>
+            </div>
         </div>
     </div>
     <script src="/static/js/script.js"></script>
