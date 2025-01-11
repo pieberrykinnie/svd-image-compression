@@ -1,37 +1,74 @@
-# svd-image-compression
+# Image Compressor
 
-An image compressor using a handwritten singular value decomposition function in NumPy. Upload an image and set the quality of the image. Still a work in progress.
+An image compressor using singular value decomposition (SVD) to reduce image file sizes. Built with NumPy and Flask.
 
-## Instructions
+Currently, the output image is grayscale. More options will be added in the future.
 
-- Clone this repository:
+## Live Demo
+
+Try it out at: https://svd-image-compression.fly.dev
+
+## Features
+
+- Upload any JPG/PNG image
+- Adjust compression quality with a slider
+- Compare original vs compressed images side-by-side
+- Download compressed result
+
+## Run Locally
+
+1. Clone this repository:
 
 ```bash
 git clone https://github.com/pieberrykinnie/svd-image-compression.git
 ```
 
-- Run a Python virtual environment:
+2. Run a Python virtual environment:
+
+Create a virtual environment:
 
 ```bash
-python -m venv venv
-venv\Scripts\activate
+python3 -m venv .venv
 ```
 
-or
+OR
 
 ```bash
-python3 -m venv venv
-venv\Scripts\activate
+python -m venv .venv
+``` 
+
+Activate the virtual environment:
+
+```bash
+.venv/bin/activate # On Mac/Linux
 ```
 
-- Install dependencies:
+OR
+
+```bash
+.venv\Scripts\activate # On Windows 
+```
+
+3. Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-- Run the Flask app:
+4. Run the Flask app:
+
+```bash
+python3 app.py
+```
+
+OR
 
 ```bash
 python app.py
+```
+
+5. Open your browser and navigate to:
+
+```bash
+http://localhost:8080
 ```
