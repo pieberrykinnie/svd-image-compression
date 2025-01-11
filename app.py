@@ -12,7 +12,11 @@ def index() -> str:
 
 @app.route("/upload", methods=["POST"])
 def upload_image() -> dict:
-    PATH: str = "static/compressed_image.jpg"
+    STATIC_DIR = "static"
+    if not os.path.exists(STATIC_DIR):
+        os.makedirs(STATIC_DIR)
+    
+    PATH = os.path.join(STATIC_DIR, "compressed_image.jpg")
 
     print(request)
 
@@ -39,4 +43,5 @@ def format_size(size: int) -> str:
     return f"{size:.2f} GB"
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host="0.0.0.0", port=port)
