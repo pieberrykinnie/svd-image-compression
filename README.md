@@ -4,10 +4,6 @@ An image compressor using singular value decomposition (SVD) to reduce image fil
 
 Currently, the output image is grayscale. More options will be added in the future.
 
-## Live Demo
-
-Try it out at: https://svd-image-compression.fly.dev
-
 ## Features
 
 - Upload any JPG/PNG image
@@ -71,4 +67,5 @@ python app.py
 
 ```bash
 http://localhost:8080
+
 ```
